@@ -1,0 +1,54 @@
+﻿@page
+@model Burger20106733.Pages.Burgers.OrderModel
+@{
+    ViewData["Title"] = "Order";
+}
+
+<h2>Order your Burgers</h2>
+<br />
+
+<form asp-page="Order">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="BurgerOrder.BurgerName" class="control-label fw-bold"></label>
+        <select asp-for="BurgerOrder.BurgerName" asp-items="Model.BurgerList" class="form-control">
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="BurgerOrder.BurgerCount" class="control-label fw-bold"></label>
+        <input asp-for="BurgerOrder.BurgerCount" class="form-control" />
+        <span asp-validation-for="BurgerOrder.BurgerCount" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="BurgerOrder.CreditCard" class="control-label fw-bold"></label>
+        <input asp-for="BurgerOrder.CreditCard" class="form-control" />
+        <span asp-validation-for="BurgerOrder.CreditCard" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Order" class="btn btn-primary" />
+    </div>
+</form>
+<br />
+
+<hr />
+
+@if (ViewData["TotalPrice"] != null)
+{
+    <h5>
+        You have purchased <b>@Model.BurgerOrder.BurgerCount</b> <b>@Model.BurgerOrder.BurgerName</b>
+    </h5>
+
+    <h5>The Total Price is: <b>$@ViewData["TotalPrice"]</b>.</h5>
+    <hr />
+}
+
+<div>
+    <a asp-page="./Index">Back to Burger List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

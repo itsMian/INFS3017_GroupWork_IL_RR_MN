@@ -1,0 +1,79 @@
+﻿@page
+@model Burger20106733.Pages.Customers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form method="get">
+    <div class="row">
+        <div class="col-sm-auto">
+            <label for="box" class="fw-bold">Search Name:</label>
+        </div>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="SearchString" id="box" />
+        </div>
+        <div class="col-sm-2">
+            <input type="submit" value="Search" class="btn btn-primary"
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].FamilyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].GivenName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].PostalCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivenName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CustomerID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CustomerID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CustomerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

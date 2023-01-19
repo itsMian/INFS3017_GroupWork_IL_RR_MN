@@ -1,0 +1,75 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+
+    .carousel-inner img{
+        width: 100%;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<div id="myCarousel" class="carousel slide" data-bs-interval="1500" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+        <button data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+        <button data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+        <button data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+        <button data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
+    </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/BLT_whopper.jpg" alt="BLT Whopper" />
+            <div class="carousel-caption">
+                <h3>BLT Whopper</h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/images/Grilled_chicken.jpg" alt="Grilled Chicken" />
+            <div class="carousel-caption">
+                <h3>Grilled Chicken</h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/images/Angus_beef.jpg" alt="Angus Beef" />
+            <div class="carousel-caption">
+                <h3>Angus Beef</h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/images/Vegetarian.jpg" alt="Vegetarian" />
+            <div class="carousel-caption">
+                <h3>Vegetarian</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<div class="row">
+    <div class="col-sm-8"><h4>Welcome to Gourmet Burger!</h4></div>
+    <div class="col-sm-4">
+        <ul style="font-size:17px">
+            <li><a href="/Index">Home</a></li>
+            <li><a href="/Burgers/Index">Burger Index</a></li>
+            <li><a href="/Privacy">Privacy</a></li>
+        </ul>
+    </div>
+</div>
